@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简易静态网站</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            color: white;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .feature-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .feature-card p {
+            color: #666;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 60px 0;
+            color: white;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #ff6b6b;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        
+        .cta-button:hover {
+            background: #ff5252;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: rgba(255, 255, 255, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>欢迎来到我的网站</h1>
+            <p>简洁、现代、响应式设计</p>
+        </header>
+        
+        <section class="features">
+            <div class="feature-card">
+                <h3>响应式设计</h3>
+                <p>完美适配各种设备尺寸，从手机到桌面电脑都能获得最佳浏览体验。</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>现代技术</h3>
+                <p>采用最新的HTML5和CSS3技术，确保网站的性能和兼容性。</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>用户体验</h3>
+                <p>注重细节设计，提供流畅的用户交互和愉悦的视觉体验。</p>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <h2>准备好开始了吗？</h2>
+            <p>立即探索更多功能，或者联系我们获取更多信息</p>
+            <a href="#" class="cta-button">立即开始</a>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 我的静态网站. 保留所有权利.</p>
+    </footer>
+
+    <script>
+        // 简单的交互效果
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('网站加载完成！');
+            
+            // 为功能卡片添加点击效果
+            const cards = document.querySelectorAll('.feature-card');
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+            
+            // 按钮点击效果
+            const ctaButton = document.querySelector('.cta-button');
+            if (ctaButton) {
+                ctaButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('感谢您的点击！这是一个演示按钮。');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
